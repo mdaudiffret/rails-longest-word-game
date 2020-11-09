@@ -1,0 +1,13 @@
+<h1>Your Score</h1>
+
+
+<div class="card">
+  <div class="card-body">
+    <p class="font-weight-bold"><%= @outcome[:score] %> points</p>
+    <p class="font-italic"><%= @outcome[:message] %></p>
+  </div>
+</div>
+
+<button type="button" class="btn btn-light">
+  <%= link_to "Play Again", new_path %>
+</button>

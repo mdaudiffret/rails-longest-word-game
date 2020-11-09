@@ -1,0 +1,18 @@
+<h1>New game</h1>
+
+<h3>Letters:</h3>
+
+<div class="d-flex justify-content-around">
+  <% @grid.each do |letter| %>
+    <div class='alert alert-primary' role='alert'><%= letter %></div>
+  <% end %>
+</div>
+
+<form action="/score" method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <div class="form-group">
+    <label for="word">Enter the longest possible word</label>
+    <input type="text" class="form-control" id="word" aria-describedby="word" name="word">
+    <small id="word" class="form-text text-muted">Use each letter only once.</small>
+  <button type="submit" class="btn btn-light" id="submit">Submit</button>
+</form>
