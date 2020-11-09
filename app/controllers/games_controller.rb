@@ -1,6 +1,3 @@
-require 'json'
-require 'open-uri'
-
 class GamesController < ApplicationController
   # metods triggered by actions
   def new
@@ -34,7 +31,6 @@ class GamesController < ApplicationController
     score_and_message = score_and_message(attempt, grid)
     result[:score] = score_and_message.first
     result[:message] = score_and_message.last
-
     result
   end
 
@@ -52,7 +48,7 @@ class GamesController < ApplicationController
   end
 
   def compute_score(attempt)
-    attempt.size
+    attempt.size * attempt.size
   end
 
 end
