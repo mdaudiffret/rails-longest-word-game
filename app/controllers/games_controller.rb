@@ -2,9 +2,18 @@ require 'json'
 require 'open-uri'
 
 class GamesController < ApplicationController
-  # methods used for calculation
-  @grid = []
+  # metods triggered by actions
+  def new
+    # action here
+    @grid = (0...10).map { (65 + rand(26)).chr }
+  end
 
+  def score
+    @outcome = run_game(params[:word], params[:grid])
+  end
+
+  private
+  # methods used for calculation
   def new_array
     @grid = (0...10).map { (65 + rand(26)).chr }
   end
@@ -46,13 +55,4 @@ class GamesController < ApplicationController
     attempt.size
   end
 
-  # metods triggered by actions
-  def new
-    # action here
-    new_array
-  end
-
-  def score
-    @outcome = run_game(params[:word], @grid)
-  end
 end

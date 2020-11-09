@@ -10,6 +10,7 @@
 
 <form action="/score" method="post">
   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= hidden_field_tag :grid, @grid %>
   <div class="form-group">
     <label for="word">Enter the longest possible word</label>
     <input type="text" class="form-control" id="word" aria-describedby="word" name="word">
